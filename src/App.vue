@@ -1,10 +1,14 @@
 <script setup lang="ts">
-  import Navbar from './components/Navbar.vue'
+  import Navbar from './components/Navbar.vue';
+  import Product from './components/Product.vue';
 </script>
 
 <template>
   <Navbar></Navbar>
-  <div class="container">oi</div>
+  <div class="container">
+    <Product></Product>
+    <Product></Product>
+  </div>
 </template>
 
 <style>
