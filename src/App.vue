@@ -6,6 +6,7 @@
 <template>
   <Navbar></Navbar>
   <div class="container">
+    <h1 class="container__title">Sessão de {sessão}</h1>
     <Product></Product>
     <Product></Product>
   </div>
@@ -33,5 +34,18 @@ body {
   height: 662px;
   margin: 56px 80px;
   background-color: #fff;
+}
+
+.container__title {
+  width: 100%;
+  height: 64px;
+  background-color: #202020;
+  font-size: 36px;
+  font-style: italic;
+  color: #fff;
+  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
