@@ -6,7 +6,7 @@
 <template>
   <Navbar></Navbar>
   <div class="container">
-    <h1 class="container__title">Sessão de {sessão}</h1>
+    <h1 class="container__title">Sessão de Itens</h1>
     <Product></Product>
     <Product></Product>
   </div>
