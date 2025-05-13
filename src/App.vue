@@ -9,6 +9,9 @@
     <h1 class="container__title">Sessão de Itens</h1>
     <Product></Product>
     <Product></Product>
+    <Product></Product>
+    <Product></Product>
+    <Product></Product>
   </div>
 </template>
 
@@ -31,8 +34,7 @@ body {
 <style scoped>
 .container {
   width: 90vw;
-  height: 662px;
-  margin: 56px 80px;
+  margin: 56px auto 0 auto;
   background-color: #fff;
 }
 
