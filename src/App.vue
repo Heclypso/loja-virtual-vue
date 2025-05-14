@@ -7,18 +7,51 @@
     filtro: ''
   })
 
-  let { filtro } = estado;
+  let valorMedio
+  let valorDosItens
+  let itens
+  let itensArray 
+
+  const intervalo = setInterval(() => {
+    itens = document.querySelectorAll('.product');
+    const quantidadeDeItens = itens.length;
+    
+    if (itens.length > 0) {
+      clearInterval(intervalo);
+
+      itensArray = [...itens] ;
+
+      itens.forEach((item) => {
+        valorDosItens = parseFloat((item.children[1].children[1].innerText).split(' ')[1].split(',')[0] + '.' + (item.children[1].children[1].innerText).split(' ')[1].split(',')[1])
+      });
+    
+      valorMedio = valorDosItens / quantidadeDeItens
+    }
+  }, 100);
 
   function getAllItens() {
     console.log("Todos os itens")
   }
   
   function getMoreExpensiveItens() {
-    console.log("Itens mais caros")
+    const itensAcimaDaMedia = itensArray.filter((item) => {
+      const valorEmTexto = (item.children[1].children[1].innerText).split(' ')[1].split(',')[0] + '.' + (item.children[1].children[1].innerText).split(' ')[1].split(',')[1]
+      const valor = parseFloat(valorEmTexto)
+
+      return valor > valorMedio;
+    });
+    console.log(itensAcimaDaMedia)
   }
 
   function getCheaperItens() {
-    console.log("Itens mais baratos")
+    const itensAbaixoDaMedia = itensArray.filter((item) => {
+      const valorEmTexto = (item.children[1].children[1].innerText).split(' ')[1].split(',')[0] + '.' + (item.children[1].children[1].innerText).split(' ')[1].split(',')[1]
+      const valor = parseFloat(valorEmTexto)
+
+      return valor < valorMedio;
+    });
+
+    console.log(itensAbaixoDaMedia)
   }
 
   function getBestSellersItens() {
@@ -28,7 +61,8 @@
   function getBestRatedItens() {
     console.log("Itens mais bem avaliados")
   }
-  
+
+  let { filtro } = estado;
 
   function alteraFiltro(evento) {
     filtro = evento.target.value
@@ -50,11 +84,11 @@
         return getAllItens()
     }
   }
-  
+
 </script>
 
 <template>
-  <Navbar></Navbar>
+  <Navbar />
   <div class="container">
     <h1 class="container__title">Sessão de Itens</h1>
     <div class="container__filter">
@@ -64,11 +98,11 @@
         <button @click="alteraFiltro" value="best-sellers" class="container__filter__button">Mais vendidos</button>
         <button @click="alteraFiltro" value="best-rated" class="container__filter__button">Melhor avaliado</button>
     </div>
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
+    <Product class="product" />
+    <Product class="product" />
+    <Product class="product" />
+    <Product class="product" />
+    <Product class="product" />
   </div>
 </template>
 
