@@ -1,6 +1,56 @@
-<script setup lang="ts">
+<script setup>
   import Navbar from './components/Navbar.vue';
   import Product from './components/Product.vue';
+  import { reactive } from 'vue';
+
+  const estado = reactive({
+    filtro: ''
+  })
+
+  let { filtro } = estado;
+
+  function getAllItens() {
+    console.log("Todos os itens")
+  }
+  
+  function getMoreExpensiveItens() {
+    console.log("Itens mais caros")
+  }
+
+  function getCheaperItens() {
+    console.log("Itens mais baratos")
+  }
+
+  function getBestSellersItens() {
+    console.log("Itens mais vendidos")
+  }
+
+  function getBestRatedItens() {
+    console.log("Itens mais bem avaliados")
+  }
+  
+
+  function alteraFiltro(evento) {
+    filtro = evento.target.value
+    
+    switch(filtro) {
+      case 'more-expensive':
+        return getMoreExpensiveItens()
+
+      case 'cheaper':
+        return getCheaperItens()
+
+      case 'best-sellers':
+        return getBestSellersItens()
+
+      case 'best-rated':
+        return getBestRatedItens()
+
+      default: 
+        return getAllItens()
+    }
+  }
+  
 </script>
 
 <template>
@@ -8,11 +58,11 @@
   <div class="container">
     <h1 class="container__title">Sessão de Itens</h1>
     <div class="container__filter">
-        <button class="container__filter__button active">Todos os Produtos</button>
-        <button class="container__filter__button">Mais caros</button>
-        <button class="container__filter__button">Mais baratos</button>
-        <button class="container__filter__button">Mais vendidos</button>
-        <button class="container__filter__button">Melhor avaliado</button>
+        <button @click="alteraFiltro" value="all-products" class="container__filter__button active">Todos os Produtos</button>
+        <button @click="alteraFiltro" value="more-expensive" class="container__filter__button">Mais caros</button>
+        <button @click="alteraFiltro" value="cheaper" class="container__filter__button">Mais baratos</button>
+        <button @click="alteraFiltro" value="best-sellers" class="container__filter__button">Mais vendidos</button>
+        <button @click="alteraFiltro" value="best-rated" class="container__filter__button">Melhor avaliado</button>
     </div>
     <Product></Product>
     <Product></Product>
