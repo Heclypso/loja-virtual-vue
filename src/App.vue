@@ -30,7 +30,7 @@
   }, 100);
 
   function getAllItens() {
-    console.log("Todos os itens")
+    console.log(itens)
   }
   
   function getMoreExpensiveItens() {
