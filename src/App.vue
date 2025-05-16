@@ -90,7 +90,7 @@
 <template>
   <Navbar />
   <div class="container">
-    <h1 class="container__title">Sessão de Itens</h1>
+    <h1 class="container__title">Sessão de Jogos</h1>
     <div class="container__filter">
         <button @click="alteraFiltro" value="all-products" class="container__filter__button active">Todos os Produtos</button>
         <button @click="alteraFiltro" value="more-expensive" class="container__filter__button">Mais caros</button>
@@ -98,10 +98,6 @@
         <button @click="alteraFiltro" value="best-sellers" class="container__filter__button">Mais vendidos</button>
         <button @click="alteraFiltro" value="best-rated" class="container__filter__button">Melhor avaliado</button>
     </div>
-    <Product class="product" />
-    <Product class="product" />
-    <Product class="product" />
-    <Product class="product" />
     <Product class="product" />
   </div>
 </template>
@@ -127,6 +123,7 @@ body {
   width: 90vw;
   margin: 56px auto 0 auto;
   background-color: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .container__title {
